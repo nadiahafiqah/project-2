@@ -7,13 +7,13 @@ import AddLineForm from "./components/AddLineForm";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Dashboard from "./components/Dashboard";
-import { Auth } from "@supabase/auth-ui-react";
+// import { Auth } from "@supabase/auth-ui-react";
 import Lines from "./components/Lines";
 
-import {
-  // Import predefined theme
-  ThemeSupa,
-} from "@supabase/auth-ui-shared";
+// import {
+//   // Import predefined theme
+//   ThemeSupa,
+// } from "@supabase/auth-ui-shared";
 
 function App() {
   const [lines, setLines] = useState([]);
@@ -35,43 +35,43 @@ function App() {
     }
   };
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userId, setUserId] = useState("");
-  const [loading, setLoading] = useState(false);
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // const [userId, setUserId] = useState("");
+  // const [loading, setLoading] = useState(false);
 
-  const getUser = async () => {
-    try {
-      setLoading(true);
-      const {
-        data: { user },
-      } = await supabase.auth.getUser();
-      if (user != null) {
-        setIsLoggedIn(true);
-        setUserId(user.id);
-      } else {
-        setIsLoggedIn(false);
-        setUserId("");
-      }
-    } catch (e) {
-    } finally {
-      setLoading(false);
-    }
-  };
+  // const getUser = async () => {
+  //   try {
+  //     setLoading(true);
+  //     const {
+  //       data: { user },
+  //     } = await supabase.auth.getUser();
+  //     if (user != null) {
+  //       setIsLoggedIn(true);
+  //       setUserId(user.id);
+  //     } else {
+  //       setIsLoggedIn(false);
+  //       setUserId("");
+  //     }
+  //   } catch (e) {
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
 
-  const signout = async () => {
-    await supabase.auth.signOut();
-  };
+  // const signout = async () => {
+  //   await supabase.auth.signOut();
+  // };
 
-  useEffect(() => {
-    getUser();
-  }, []);
+  // useEffect(() => {
+  //   getUser();
+  // }, []);
 
   return (
     <>
       {/* <div>
         {isLoggedIn ? ( */}
       <>
-        <Navbar signout={signout} />
+        <Navbar />
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/new" element={<AddLineForm />} />

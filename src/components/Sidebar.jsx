@@ -2,7 +2,6 @@ import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
 import * as IoIcons from "react-icons/io";
 import * as IoIcons5 from "react-icons/io5";
-import { BsClipboard2XFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
 const Sidebar = (props) => {

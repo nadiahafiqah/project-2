@@ -3,7 +3,7 @@ import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
 
 import { Link } from "react-router-dom";
-import { SidebarData } from "./SidebarData";
+// import { SidebarData } from "./SidebarData";
 import "../App.css";
 import { IconContext } from "react-icons";
 import Sidebar from "./Sidebar";
@@ -30,7 +30,7 @@ function Navbar(props) {
                 />
               </Link>
             </li>
-            <Sidebar signout={props.signout()} />
+            <Sidebar />
             {/* {SidebarData.map((item, index) => {
               return (
                 <li key={index} className={item.cName}>

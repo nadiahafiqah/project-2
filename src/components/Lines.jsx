@@ -58,6 +58,8 @@ const ActiveLines = (props) => {
           activate();
           break;
         }
+        default: {
+        }
       }
     };
     return (
