@@ -34,6 +34,7 @@ Youtube, LOTS of Google.
 
 - Fix archived lines
 - Could add more species (with scientific names)
+- Add authentication
 
 ## APIs Used
 
