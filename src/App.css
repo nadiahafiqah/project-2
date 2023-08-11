@@ -1,38 +1,171 @@
 .App {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.addlineform,
+.dashboard {
+  margin: 0 auto;
+  max-width: 400px;
+  text-align: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.activelines,
+.inactivelines {
+  text-align: center;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.addlineform label {
+  text-align: left;
+  display: block;
+}
+.addlineform input,
+.addlineform textarea,
+.addlineform select {
+  width: 100%;
+  padding: 6px 10px;
+  margin: 10px 0;
+  border: 1px solid black;
+  box-sizing: border-box;
+  display: block;
+}
+.addlineform button,
+.activelines button,
+.inactivelines button,
+.dashboard button {
+  background: black;
   color: white;
+  border-radius: 4px;
+  padding: 10px;
+  margin: 10px;
 }
 
-.App-link {
-  color: #61dafb;
+.activelines td,
+.activelines th,
+.inactivelines td,
+.inactivelines th,
+.dashboard td,
+.dashboard th {
+  border-color: #000;
+  border-style: solid;
+  padding: 10px;
+}
+.activelines tr,
+.inactivelines tr {
+  background: lightblue;
+}
+.activelines tr:nth-child(odd),
+.inactivelines tr:nth-child(odd),
+.dashboard td,
+.dashboard th {
+  background: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.activelines table,
+.inactivelines table,
+.dashboard table {
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+/* navbar css */
+
+.navbar {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  height: 80px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.menu-bars {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  margin-left: 2rem;
+  font-size: 2rem;
+  background: none;
+  color: black;
+}
+
+.nav-menu {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  opacity: 0.9;
+  width: 250px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  transition: 850ms;
+}
+
+.nav-menu.active {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  left: 0;
+  transition: 450ms;
+}
+
+.nav-text {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 8px 0px 8px 16px;
+  list-style: none;
+  height: 60px;
+}
+
+.nav-text a {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  width: 95%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  border-radius: 4px;
+}
+
+.nav-text a:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+.nav-menu-items {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.navbar-toggle {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+span {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  margin-left: 16px;
 }
