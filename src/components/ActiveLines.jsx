@@ -1,8 +1,19 @@
 import { supabase } from "../supabaseClient";
+import { Link } from "react-router-dom";
+// import { useState } from "react";
 
 const ActiveLines = (props) => {
+  // const promise1=  supabase.from("lines").delete().eq("id", item.id)
+  // const promise2= supabase.from("inactive_lines")        .insert({
+  //   name: name,
+  //   type: type,
+  //   description: desc,
+  //   species: species,
+  // })
+  // .single();
+
   const activeLinesList = props.lines.map((item, index) => {
-    const removeActive = async (props) => {
+    const removeActive = async () => {
       try {
         let { error } = await supabase.from("lines").delete().eq("id", item.id);
 
@@ -12,6 +23,25 @@ const ActiveLines = (props) => {
         alert(error.message);
       }
     };
+
+    // const editList = async () => {
+    //   try {
+    //     let { error } = await supabase
+    //       .from("lines")
+    //       .update({
+    //         name: name,
+    //         type: type,
+    //         description: desc,
+    //         species: species,
+    //       })
+    //       .eq("id", item.id);
+
+    //     if (error) throw error;
+    //     window.location.reload();
+    //   } catch (error) {
+    //     alert(error.message);
+    //   }
+    // };
 
     return (
       <tr key={item.id}>
@@ -29,8 +59,16 @@ const ActiveLines = (props) => {
               removeActive();
             }}
           >
-            Deactivate
+            Delete
           </button>
+          {/* <button
+            key={index}
+            onClick={() => {
+              editList();
+            }}
+          >
+            Edit
+          </button> */}
         </td>
       </tr>
     );
@@ -52,6 +90,9 @@ const ActiveLines = (props) => {
         </thead>
         <tbody>{activeLinesList}</tbody>
       </table>
+      <Link to="/new">
+        <button>Add new line</button>
+      </Link>
     </div>
   );
 };

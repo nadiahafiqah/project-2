@@ -1,70 +1,46 @@
-# Getting Started with Create React App
+# DNBase - your line library
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+One stop solution to keep track of your genetic lines. No more copy/pasting from excel sheets, or accidental deletes!
 
-## Available Scripts
+## Description
 
-In the project directory, you can run:
+The app aims to be a library where users are able to store their data of genetic lines used in their various experiments. It will store a list of active lines that the user is currently working on and a list of archived lines. This makes updating ethics application and collaborations more seamless.
 
-### `npm start`
+### Technical Used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+React, Supabase
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Wireframes
 
-### `npm test`
+Your step by step planning sketch of your project, that you can post them as an image in here.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### User Stories
 
-### `npm run build`
+User will be greeted by dashboard with a summary of lines that are currently active/archived. They will be able to add a new line from this page.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+After adding line, new data will be added into "Active Lines" page, where the current lines that are in use will be listed.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Once no longer in use, user can click on "Delete" to remove the line from the list. They are also able to add a new line at the bottom of the table from the Active Lines page.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Planning and Development Process
 
-### `npm run eject`
+A basic story of your planning and developing this project.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Problem-Solving Strategy
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Youtube, LOTS of Google.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Unsolved problems
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Fix archived lines
+- Could add more species (with scientific names)
 
-## Learn More
+## APIs Used
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Supabase API for adding/deleting data.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Acknowledgments
 
-### Code Splitting
+Thank you Henry Neo, Darric Heng and Faith Ye for your guidance!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## References

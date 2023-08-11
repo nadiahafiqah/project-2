@@ -1,6 +1,11 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { supabase } from "../supabaseClient";
+// import AddLineForm from "./AddLineForm";
+// import ActiveLines from "./ActiveLines";
+// import InactiveLines from "./InactiveLines";
+// import { Routes, Route } from "react-router-dom";
+// import Navbar from "./Navbar";
 
 const Dashboard = () => {
   const [numActiveLines, setNumActiveLines] = useState("");
@@ -11,7 +16,7 @@ const Dashboard = () => {
 
   const setNum = async () => {
     try {
-      let { data, count, error } = await supabase
+      let { count, error } = await supabase
         .from("lines")
         .select("*", { count: "exact" });
 
@@ -28,6 +33,19 @@ const Dashboard = () => {
   // const inactiveLinesNo = props.inactiveLinesArr.length;
   return (
     <>
+      {/* <Navbar />
+      <Routes>
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/new" element={<AddLineForm />} />
+        <Route
+          path="/active"
+          element={
+            // props reads name on lhs
+            <ActiveLines lines={lines} />
+          }
+        />
+        <Route path="/inactive" element={<InactiveLines />} />
+      </Routes> */}
       <div className="dashboard">
         <h2>Welcome back user!</h2>
         <p>Here is a summary of your data:</p>

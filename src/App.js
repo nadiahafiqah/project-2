@@ -1,17 +1,16 @@
 import "./App.css";
 import { useState, useEffect } from "react";
+// import { Auth } from "@supabase/auth-ui-react";
+// import { ThemeSupa } from "@supabase/auth-ui-shared";
+import { supabase } from "./supabaseClient";
 import AddLineForm from "./components/AddLineForm";
 import ActiveLines from "./components/ActiveLines";
 import InactiveLines from "./components/InactiveLines";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Dashboard from "./components/Dashboard";
-import { supabase } from "./supabaseClient";
 
 function App() {
-  // const [activeLinesData, setActiveLinesData] = useState(activeLinesArr);
-  // const [inactiveLinesArr, setInactiveLinesArr] = useState([]);
-
   const [lines, setLines] = useState([]);
 
   useEffect(() => {
@@ -30,6 +29,19 @@ function App() {
       alert(error.message);
     }
   };
+
+  // const [session, setSession] = useState(null);
+
+  // useEffect(() => {
+  //   supabase.auth.getSession().then(({ data: { session } }) => {
+  //     setSession(session);
+  //   });
+
+  //   const {
+  //     data: { subscription },
+  //   } = supabase.auth.onAuthStateChange((_event, session) => {
+  //     setSession(session);
+  //   });
 
   // const removeActive = async () => {
   //   try {
@@ -76,6 +88,15 @@ function App() {
   // const addNew = () => {
   //   setActiveLinesData([...activeLinesData, addLines]);
   // };
+
+  //   return () => subscription.unsubscribe();
+  // }, []);
+
+  // if (!session) {
+  //   return <Auth supabaseClient={supabase} appearance={{ theme: ThemeSupa }} />;
+  // } else {
+  //   return <div>Logged in!</div>;
+  // }
 
   return (
     <>
