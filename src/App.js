@@ -4,11 +4,16 @@ import { useState, useEffect } from "react";
 // import { ThemeSupa } from "@supabase/auth-ui-shared";
 import { supabase } from "./supabaseClient";
 import AddLineForm from "./components/AddLineForm";
-import ActiveLines from "./components/ActiveLines";
-import InactiveLines from "./components/InactiveLines";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Dashboard from "./components/Dashboard";
+import { Auth } from "@supabase/auth-ui-react";
+import Lines from "./components/Lines";
+
+import {
+  // Import predefined theme
+  ThemeSupa,
+} from "@supabase/auth-ui-shared";
 
 function App() {
   const [lines, setLines] = useState([]);
@@ -30,90 +35,61 @@ function App() {
     }
   };
 
-  // const [session, setSession] = useState(null);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userId, setUserId] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  // useEffect(() => {
-  //   supabase.auth.getSession().then(({ data: { session } }) => {
-  //     setSession(session);
-  //   });
+  const getUser = async () => {
+    try {
+      setLoading(true);
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
+      if (user != null) {
+        setIsLoggedIn(true);
+        setUserId(user.id);
+      } else {
+        setIsLoggedIn(false);
+        setUserId("");
+      }
+    } catch (e) {
+    } finally {
+      setLoading(false);
+    }
+  };
 
-  //   const {
-  //     data: { subscription },
-  //   } = supabase.auth.onAuthStateChange((_event, session) => {
-  //     setSession(session);
-  //   });
+  const signout = async () => {
+    await supabase.auth.signOut();
+  };
 
-  // const removeActive = async () => {
-  //   try {
-  //     let { data, error } = await supabase
-  //       .from("lines")
-  //       .delete()
-  //       .eq("id", lines.id)
-
-  //     if (error) throw error;
-  //     window.location.reload();
-  //   } catch (error) {
-  //     alert(error.message);
-  //   }
-  // };
-
-  // // change button to make inactive instead of delete, rename add to make active (with make active function, reverse of makeinactive)
-  // const makeInactive = (index) => {
-  //   setInactiveLinesArr([...inactiveLinesArr, activeLinesArr[index]]);
-  // };
-
-  // // delete inactive lines
-  // const handleDeleteInactiveLines = (lineIndex) => {
-  //   setInactiveLinesArr((prev) =>
-  //     prev.filter((line, index) => index !== lineIndex)
-  //   );
-  // };
-
-  // const reactivate = (lineIndex) => {
-  //   setActiveLinesData([
-  //     ...activeLinesData,
-  //     (prev) => prev.filter((line, index) => index === lineIndex),
-  //   ]);
-  //   setInactiveLinesArr((prev) =>
-  //     prev.filter((line, index) => index !== lineIndex)
-  //   );
-  // };
-
-  // const deleteActive = (lineIndex) => {
-  //   setActiveLinesData((prev) =>
-  //     prev.filter((line, index) => index !== lineIndex)
-  //   );
-  // };
-
-  // const addNew = () => {
-  //   setActiveLinesData([...activeLinesData, addLines]);
-  // };
-
-  //   return () => subscription.unsubscribe();
-  // }, []);
-
-  // if (!session) {
-  //   return <Auth supabaseClient={supabase} appearance={{ theme: ThemeSupa }} />;
-  // } else {
-  //   return <div>Logged in!</div>;
-  // }
+  useEffect(() => {
+    getUser();
+  }, []);
 
   return (
     <>
-      <Navbar />
-      <Routes>
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/new" element={<AddLineForm />} />
-        <Route
-          path="/active"
-          element={
-            // props reads name on lhs
-            <ActiveLines lines={lines} />
-          }
-        />
-        <Route path="/inactive" element={<InactiveLines />} />
-      </Routes>
-      <div className="App"></div>
+      {/* <div>
+        {isLoggedIn ? ( */}
+      <>
+        <Navbar signout={signout} />
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/new" element={<AddLineForm />} />
+          <Route
+            path="/lines"
+            element={
+              // props reads name on lhs
+              <Lines lines={lines} />
+            }
+          />
+        </Routes>
+        <div className="App"></div>
+      </>
+      {/* ) : null}
+        {!isLoggedIn && !loading ? (
+          <Auth supabaseClient={supabase} appearance={{ theme: ThemeSupa }} />
+        ) : null}
+      </div> */}
     </>
   );
 }

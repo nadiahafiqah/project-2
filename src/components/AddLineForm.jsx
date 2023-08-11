@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { supabase } from "../supabaseClient";
 
-const AddLineForm = (props) => {
+const AddLineForm = () => {
   const [type, setType] = useState("Wild type");
   const [desc, setDesc] = useState("");
   const [name, setName] = useState("");

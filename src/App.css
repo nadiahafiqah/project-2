@@ -8,13 +8,13 @@
   text-align: center;
 }
 
-.activelines,
-.inactivelines {
+.lines {
   text-align: center;
 }
 .addlineform label {
   text-align: left;
   display: block;
+  font-size: medium;
 }
 .addlineform input,
 .addlineform textarea,
@@ -25,41 +25,50 @@
   border: 1px solid black;
   box-sizing: border-box;
   display: block;
+  font-size: medium;
 }
 .addlineform button,
-.activelines button,
-.inactivelines button,
+.lines button,
+button,
 .dashboard button {
   background: black;
   color: white;
+  border: 1px black;
   border-radius: 4px;
   padding: 10px;
   margin: 10px;
+  font-size: medium;
 }
 
-.activelines td,
-.activelines th,
-.inactivelines td,
-.inactivelines th,
+.addlineform button:hover,
+.lines button.add:hover,
+.dashboard button:hover {
+  background-color: #71c78a;
+  color: black;
+  transition: 0.5s;
+}
+.lines button:hover,
+button:hover {
+  background: #d70040;
+  transition: 0.5s;
+}
+
+.lines td,
+.lines th,
 .dashboard td,
 .dashboard th {
-  border-color: #000;
-  border-style: solid;
+  border: 1px solid black;
   padding: 10px;
 }
-.activelines tr,
-.inactivelines tr {
+.lines tr {
   background: lightblue;
 }
-.activelines tr:nth-child(odd),
-.inactivelines tr:nth-child(odd),
-.dashboard td,
-.dashboard th {
+.lines tr:nth-child(odd),
+tr:nth-child(odd) {
   background: white;
 }
 
-.activelines table,
-.inactivelines table,
+.lines table,
 .dashboard table {
   margin: 0 auto;
   border-collapse: collapse;
@@ -130,7 +139,7 @@
   padding: 0;
   text-decoration: none;
   color: #fff;
-  font-size: 18px;
+  font-size: 15px;
   width: 95%;
   height: 100%;
   display: flex;

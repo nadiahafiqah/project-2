@@ -3,22 +3,24 @@ import { Link } from "react-router-dom";
 import { supabase } from "../supabaseClient";
 // import AddLineForm from "./AddLineForm";
 // import ActiveLines from "./ActiveLines";
-// import InactiveLines from "./InactiveLines";
 // import { Routes, Route } from "react-router-dom";
 // import Navbar from "./Navbar";
 
 const Dashboard = () => {
   const [numActiveLines, setNumActiveLines] = useState("");
+  const [numInactiveLines, setNumInactiveLines] = useState("");
 
   useEffect(() => {
-    setNum();
+    setActiveNum();
+    setInactiveNum();
   }, []);
 
-  const setNum = async () => {
+  const setActiveNum = async () => {
     try {
       let { count, error } = await supabase
         .from("lines")
-        .select("*", { count: "exact" });
+        .select("status", { count: "exact" })
+        .eq("status", "Active");
 
       if (error) throw error;
       if (count != null) {
@@ -29,8 +31,22 @@ const Dashboard = () => {
     }
   };
 
-  // const activeLinesNo = props.activeLinesData.length;
-  // const inactiveLinesNo = props.inactiveLinesArr.length;
+  const setInactiveNum = async () => {
+    try {
+      let { count, error } = await supabase
+        .from("lines")
+        .select("status", { count: "exact" })
+        .eq("status", "Inactive");
+
+      if (error) throw error;
+      if (count != null) {
+        setNumInactiveLines(count);
+      }
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+
   return (
     <>
       {/* <Navbar />
@@ -52,12 +68,12 @@ const Dashboard = () => {
         <table>
           <tbody>
             <tr>
-              <th>Active Lines</th>
+              <th>Number of active lines</th>
               <td>{numActiveLines}</td>
             </tr>
             <tr>
-              <th>Inactive Lines</th>
-              <td>2</td>
+              <th>Numer of inactive lines</th>
+              <td>{numInactiveLines}</td>
             </tr>
           </tbody>
         </table>
