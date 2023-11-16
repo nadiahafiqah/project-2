@@ -17,9 +17,3 @@ User will be greeted by dashboard with a summary of lines that are currently act
 After adding line, new data will be added into "Active Lines" page, where the current lines that are in use will be listed.
 
 Once no longer in use, user can click on "Delete" to remove the line from the list. They are also able to add a new line at the bottom of the table from the Active Lines page.
-
-## Acknowledgments
-
-## Thank you Henry Neo, Darric Heng and Faith Ye for your guidance!
-
-## References
