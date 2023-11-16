@@ -3,6 +3,7 @@
 One stop solution to keep track of your genetic lines. No more copy/pasting from excel sheets, or accidental deletes!
 
 Access the live version [here](https://dnbase.netlify.com).
+***Note: Supabase puts the database to "sleep" when not in use for a while. Since the app depends on Supabase to run, link might not work.***
 
 ## Description
 
