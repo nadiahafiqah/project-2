@@ -2,7 +2,7 @@
 
 One stop solution to keep track of your genetic lines. No more copy/pasting from excel sheets, or accidental deletes!
 
-Access the live version [here](dnbase.netlify.com).
+Access the live version [here](https://dnbase.netlify.com).
 
 ## Description
 
