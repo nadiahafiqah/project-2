@@ -2,6 +2,8 @@
 
 One stop solution to keep track of your genetic lines. No more copy/pasting from excel sheets, or accidental deletes!
 
+Access the live version [here](dnbase.netlify.com).
+
 ## Description
 
 The app aims to be a library where users are able to store their data of genetic lines used in their various experiments. It will store a list of active lines that the user is currently working on and a list of archived lines. This makes updating ethics application and collaborations in laboratories that use genetic lines more seamless.
